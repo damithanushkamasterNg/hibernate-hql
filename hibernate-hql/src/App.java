@@ -8,8 +8,8 @@ public class App {
     public static void main(String[] args) throws Exception {
         CustomerRepository customerRepository = new CustomerRepository();
 
-      /////////////////////////////////////////////////////////////////////////////////
-      
+        /////////////////////////////////////////////////////////////////////////////////
+
         // List<CustomerEntity> custEntities = customerRepository.getAllCustomers();
         // custEntities.forEach(System.out::println);
 
@@ -17,14 +17,14 @@ public class App {
 
         // List<Object[]> data = customerRepository.getAllCustomerNativeQuery();
         // for (Object[] row : data) {
-        //     System.out.println(Arrays.toString(row));
+        // System.out.println(Arrays.toString(row));
         // }
 
         //////////////////////////////////////////////////////////////////////////////////////////
 
         // List<Object[]> data = customerRepository.getAllCustomerNameAndDob();
         // for (Object[] row : data) {
-        //     System.out.println(Arrays.toString(row));
+        // System.out.println(Arrays.toString(row));
         // }
 
         //////////////////////////////////////////////////////////////////////////////////////////
@@ -32,9 +32,28 @@ public class App {
         // System.out.println(customerEntity.toString());
 
         //////////////////////////////////////////////////////////////////////////////////////////
-        CustomerEntity customerEntity = customerRepository.findCustomerByIdUsingNamedParameters("C001");
-        System.out.println(customerEntity.toString());
+        // CustomerEntity customerEntity =
+        ////////////////////////////////////////////////////////////////////////////////////////// customerRepository.findCustomerByIdUsingNamedParameters("C001");
+        // System.out.println(customerEntity.toString());
+        //////////////////////////////////////////////////////////////////////////////////////////
 
+
+          /////////////////////////////////////////////////////////////////////////////////
+
+        // List<CustomerEntity> custEntities =
+        // customerRepository.getAllCustomersOrderByNameDesc();
+        // custEntities.forEach(System.out::println);
+
+        /////////////////////////////////////////////////////////////////////////////////
+        // Object[] data = customerRepository.getCutsomerSummery();
+        // System.out.println(Arrays.toString(data));
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+
+        List<Object[]> data = customerRepository.getCutsomerSummeryByProvince();
+        for (Object[] row : data) {
+            System.out.println(Arrays.toString(row));
+        }
 
     }
 }
