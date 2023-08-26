@@ -1,6 +1,9 @@
 package repository;
 
+import java.util.List;
+
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import entity.CustomerEntity;
 import util.SessionFactoryConfiguration;
@@ -12,4 +15,13 @@ public class CustomerRepository {
         CustomerEntity customerEntity = session.get(CustomerEntity.class, id);
         return customerEntity;
     }
+
+    public List<CustomerEntity> getAllCustomers(){
+        String sql = "FROM CustomerEntity";
+        Query query = session.createQuery(sql);
+        List<CustomerEntity> customerEntities = query.list();
+        return customerEntities;
+    }
+
+
 }
