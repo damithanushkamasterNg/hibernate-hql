@@ -24,11 +24,34 @@ public class CustomerRepository {
     }
 
 
-     public List<Object[]> getAllCustomersSQl(){
+     public List<Object[]> getAllCustomersUsingNativeSQl(){
         String sql = "select * from customer";
         Query query = session.createSQLQuery(sql);
         List<Object[]> data = query.list();
         return data;
+    }
+
+
+    public List<Object[]> getAllCustomerNameAndDob(){
+        String hql = "select c.id, c.name, c.dob from CustomerEntity AS c";
+        Query query = session.createQuery(hql);
+        List<Object[]> data = query.list();
+        return data;
+    }
+
+    public CustomerEntity findCustomerById(String id) {
+        String hql = "From CustomerEntity where id = '" + id +"'";
+        Query query = session.createQuery(hql);
+        CustomerEntity customerEntity = (CustomerEntity) query.uniqueResult();
+        return customerEntity;
+    }
+
+    public CustomerEntity findCustomerByIdUsingNamedParameters(String id) {
+        String hql = "FROM CustomerEntity WHERE id=:id";
+        Query query = session.createQuery(hql);
+        query.setParameter("id", id);
+        CustomerEntity customerEntity = (CustomerEntity) query.uniqueResult();
+        return customerEntity;
     }
 
 
