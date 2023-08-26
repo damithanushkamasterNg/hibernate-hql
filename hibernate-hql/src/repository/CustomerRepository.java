@@ -24,4 +24,12 @@ public class CustomerRepository {
     }
 
 
+     public List<Object[]> getAllCustomersSQl(){
+        String sql = "select * from customer";
+        Query query = session.createSQLQuery(sql);
+        List<Object[]> data = query.list();
+        return data;
+    }
+
+
 }
